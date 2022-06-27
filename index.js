@@ -17,6 +17,27 @@ mongoose
   })
   .then(() => {
     // Run your code here, after you have insured that the connection was made
+    Recipe.create({
+      title: String,
+      level: String,
+      ingredient: Array,
+      cuisine: String,
+      dishType: String,
+      image: String,
+      duration: Number,
+      creator: String,
+      created: String
+    })
+      .then(function (newRecipe) {
+        console.log('1 recipe created:', newRecipe.title)
+      })
+      .catch((err) => {console.log(err)})
+    
+    // Recipe.insertMany(data) // j'insère tout les recipes de data.json en prenant comme modèle newRecipe
+    //   .then(function (recipes) {
+    //     console.log(`${recipes.length} recipes ont ete crees`)
+    //   })
+    //   .catch(err => console.log('oops', err))
   })
   .catch(error => {
     console.error('Error connecting to the database', error);

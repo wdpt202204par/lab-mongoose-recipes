@@ -59,9 +59,16 @@ mongoose
     })
       .catch((err) => console.log("oops", err));
   })
+
+    .catch((error) => {
+    console.error("Error connecting to the database", error);
+  })
+
+/*   .then(() => {
+    mongoose.connection.close();
+    console.log("Connection closed");
+  }) */
+
   .catch((error) => {
   console.error("Error connecting to the database", error);
 })
-
-scriptOrder()
-mongoose.connection.close()
